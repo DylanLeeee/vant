@@ -2,7 +2,7 @@
     <div class="register-container">
         <van-nav-bar
             class="app-nav-bar"
-            title="注册"
+            title="用户注册"
             left-arrow
             @click-left="$router.back()"
         />
@@ -22,20 +22,7 @@
                 placeholder="密码"
                 :rules="formRules.password"
             />
-            <van-field
-                v-model="user.address"
-                clearable
-                left-icon="location-o"
-                placeholder="收货地址"
-            />
-            <van-field
-                v-model="user.phone"
-                clearable
-                left-icon="phone-o"
-                placeholder="手机号"
-                :rules="formRules.phone"
-            />
-            <div class="login-button-wrap">
+            <div class="register-button-wrap">
                 <van-button
                 class= "login-button"
                 type= "info"
@@ -49,6 +36,7 @@
 <script>
 
 import { register } from '@/api/user'
+
 export default {
     name: 'RegisterIndex',
     data () {
@@ -97,6 +85,15 @@ export default {
     .van-nav-bar__content{
         background-color: #6db4fb;
     }
-
+    .register-button-wrap {
+        padding: 26px 16px;
+        .login-button {
+            background-color: #6db4fb;
+            border: none;
+            .van-button__text {
+                font-size: 16px;
+            }
+        }
+    }
 }
 </style>

@@ -30,8 +30,24 @@ const routes = [
             },
             {
                 path: '/my',
-                name: 'my',
-                component: () => import('@/views/my/')
+                component: () => import('@/views/my/'),
+                children: [
+                    {
+                        path: '',
+                        name: 'my',
+                        component: () => import('@/views/my/components/')
+                    },
+                    {
+                        path: '/address-add',
+                        name: 'address-add',
+                        component: () => import('@/views/my/components/address-add.vue')
+                    },
+                    {
+                        path: '/address-list',
+                        name: 'address-list',
+                        component: () => import('@/views/my/components/address-list.vue')
+                    }
+                ]
             },
             {
                 path: '/cart',
