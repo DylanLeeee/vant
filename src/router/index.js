@@ -25,8 +25,14 @@ const routes = [
             },
             {
                 path: '/search',
-                name: 'search',
-                component: () => import('@/views/search/')
+                component: () => import('@/views/search/'),
+                children: [
+                    {
+                        path: '',
+                        name: 'search',
+                        component: () => import('@/views/search/components/empty.vue')
+                    }
+                ]
             },
             {
                 path: '/my',
@@ -46,6 +52,16 @@ const routes = [
                         path: '/address-list',
                         name: 'address-list',
                         component: () => import('@/views/my/components/address-list.vue')
+                    },
+                    {
+                        path: '/order-list',
+                        name: 'order-list',
+                        component: () => import('@/views/my/components/order-list.vue')
+                    },
+                    {
+                        path: '/express-list',
+                        name: 'express-list',
+                        component: () => import('@/views/my/components/express-list.vue')
                     }
                 ]
             },
