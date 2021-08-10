@@ -6,12 +6,16 @@
             left-arrow
             @click-left="$router.back()"
         />
-        <van-submit-bar :price="3050" button-text="提交订单" @submit="onSubmit" />
+       <PurchasedList></PurchasedList>
     </div>
 </template>
 
 <script>
+import PurchasedList from './components/purchased-list'
 export default {
-    name: 'Cart'
+    name: 'Cart',
+    components: {
+        PurchasedList
+    }
 }
 </script>
