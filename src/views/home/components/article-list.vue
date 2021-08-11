@@ -14,7 +14,7 @@
                     :title="item.name"
                     :thumb="item.imgUrl"
                     :origin-price="item.unitPrice"
-                    @click="getDetail"
+                    @click-thumb="getDetail"
                     >
                     <template #tags>
                         <van-tag plain type="danger">标签</van-tag>
