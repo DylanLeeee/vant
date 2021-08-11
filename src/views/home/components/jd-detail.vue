@@ -16,10 +16,6 @@ export default {
 </script>
 
 <style scoped>
-.iframe-container {
-    width:auto;
-    height: 500px;
-}
 .trend-container2 {
   position: relative;
   width: 100%;

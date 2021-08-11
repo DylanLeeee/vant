@@ -15,10 +15,13 @@
 <script>
 
 import ArticleList from './components/article-list'
+
 import { getPruductsCatagory } from '@/api/products.js'
 export default {
     name: 'HomeIndex',
-    components: { ArticleList },
+    components: {
+        ArticleList
+    },
     data () {
         return {
             articleTitle: '首页title',

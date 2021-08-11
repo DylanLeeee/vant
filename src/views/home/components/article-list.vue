@@ -50,8 +50,7 @@ export default {
             productsList: '',
             loading: false,
             finished: true,
-            show: false,
-            iframeSrc: 'http://item.jd.com/100013389522.html'
+            show: false
         }
     },
     mounted () {
