@@ -24,6 +24,11 @@ const routes = [
                 component: () => import('@/views/home/')
             },
             {
+                path: '/jddetail',
+                name: 'jddetail',
+                component: () => import('@/views/home/components/jd-detail.vue')
+            },
+            {
                 path: '/search',
                 component: () => import('@/views/search/'),
                 children: [

@@ -14,14 +14,19 @@
                     :title="item.name"
                     :thumb="item.imgUrl"
                     :origin-price="item.unitPrice"
+                    @click="getDetail"
                     >
                     <template #tags>
                         <van-tag plain type="danger">标签</van-tag>
                         <van-tag plain type="danger">标签</van-tag>
                     </template>
                     <template #footer>
-                        <van-button size="mini">按钮</van-button>
-                        <van-button size="mini">按钮</van-button>
+                        <!-- <div class="footer-div"> -->
+                        <!-- <van-goods-action-button  type="danger" text="购物车" to="cart"/>
+                        <van-goods-action-button   type="danger" text="购买" /> -->
+                        <van-button round type="danger" size="small" @click="addCart">加购物车</van-button>
+                        <van-button round type="danger" size="small">立即购买</van-button>
+                        <!-- </div> -->
                     </template>
                 </van-card>
             </van-cell>
@@ -44,13 +49,16 @@ export default {
         return {
             productsList: '',
             loading: false,
-            finished: true
+            finished: true,
+            show: false,
+            iframeSrc: 'http://item.jd.com/100013389522.html'
         }
     },
     mounted () {
         this.getProductsList()
     },
     methods: {
+        // 获取商品列表
         async getProductsList () {
             const { data } = await getPruductsInfo({ catagory: this.articleTitle })
             console.log(data)
@@ -67,6 +75,13 @@ export default {
                     this.finished = true
                 }
             }, 1000)
+        },
+        async addCart () {
+            // 加入购物车
+            this.$toast('已加入购物车')
+        },
+        getDetail () {
+            this.$router.push({ name: 'jddetail' })
         }
     }
 }
@@ -80,5 +95,17 @@ export default {
     top: 90px;
     bottom: 50px;
     overflow-y:auto;
+}
+.footer-div {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    float: right;
+    .van-button__content {
+        width:160px;
+        .van-button__text {
+            font-size: smaller;
+        }
+    }
 }
 </style>
