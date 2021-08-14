@@ -14,8 +14,8 @@
                     :title="item.name"
                     :thumb="item.imgUrl"
                     :origin-price="item.unitPrice"
-                    @click-thumb="getDetail"
-                    >
+                    @click-thumb="getDetail(item.skuid)"
+                >
                     <template #tags>
                         <van-tag plain type="danger">标签</van-tag>
                         <van-tag plain type="danger">标签</van-tag>
@@ -50,7 +50,8 @@ export default {
             productsList: '',
             loading: false,
             finished: true,
-            show: false
+            show: false,
+            skuID: ''
         }
     },
     mounted () {
@@ -60,7 +61,6 @@ export default {
         // 获取商品列表
         async getProductsList () {
             const { data } = await getPruductsInfo({ catagory: this.articleTitle })
-            console.log(data)
             this.productsList = data.data
         },
         onLoad () {
@@ -79,8 +79,11 @@ export default {
             // 加入购物车
             this.$toast('已加入购物车')
         },
-        getDetail () {
-            this.$router.push({ name: 'jddetail' })
+        getDetail (id) {
+            console.log('********************')
+            console.log(id)
+            console.log('********************')
+            this.$router.push({ name: 'jddetail', params: { skuID: id } })
         }
     }
 }

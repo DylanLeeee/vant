@@ -9,7 +9,14 @@ export default {
     name: 'JdDetail',
     data () {
         return {
-            iframeSrc: 'http://item.jd.com/100013389522.html'
+            // iframeSrc: 'http://item.jd.com/100013389522.html'
+            iframeSrc: 'http://item.jd.com/' + this.skuID + '.html'
+        }
+    },
+    props: {
+        skuID: {
+            type: String,
+            required: true
         }
     }
 }

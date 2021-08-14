@@ -24,11 +24,6 @@ const routes = [
                 component: () => import('@/views/home/')
             },
             {
-                path: '/jddetail',
-                name: 'jddetail',
-                component: () => import('@/views/home/components/jd-detail.vue')
-            },
-            {
                 path: '/search',
                 component: () => import('@/views/search/'),
                 children: [
@@ -69,6 +64,12 @@ const routes = [
                         component: () => import('@/views/my/components/express-list.vue')
                     }
                 ]
+            },
+            {
+                path: '/jddetail/:skuID',
+                name: 'jddetail',
+                component: () => import('@/views/home/components/jd-detail.vue'),
+                props: true
             },
             {
                 path: '/cart',
